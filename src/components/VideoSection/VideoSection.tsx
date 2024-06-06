@@ -1,0 +1,25 @@
+import React from 'react';
+
+const VideoSection: React.FC = () => {
+    return (
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-yellow-500 text-center">
+            <div className="max-w-7xl mx-auto">
+                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Assista a uma demonstração do CHATTE em ação!
+                </h2>
+                <div className="mt-8">
+                    <div className="aspect-w-16 aspect-h-9">
+                        <iframe
+                            className="w-full h-full rounded-lg"
+                            src="https://www.youtube.com/watch?v=BRzQcG-f8jc"
+                            title="Demo do CHATTE"
+                            allowFullScreen
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default VideoSection;

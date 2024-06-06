@@ -1,0 +1,16 @@
+version: '3.3'
+volumes:
+  data:
+
+
+services: 
+  landpage:
+    build:
+      dockerfile: ./Dockerfile
+    container_name: landpage
+    restart: always
+    ports:
+      - ${VITE_PORT}:${VITE_PORT}
+    volumes:
+      - ./src:/usr/src/app/src
+    

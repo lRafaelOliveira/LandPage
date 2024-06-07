@@ -12,7 +12,7 @@ COPY .env* ./
 COPY . .
 # executa os comandos para build do sistema e alimentacao do banco de dados
 
-EXPOSE 3000
+EXPOSE 2000
 
 # Comando padrão a ser executado quando o contêiner for iniciado
 CMD ["npm", "start"]

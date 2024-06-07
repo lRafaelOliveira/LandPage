@@ -8,13 +8,8 @@ const VideoSection: React.FC = () => {
                     Assista a uma demonstração do CHATTE em ação!
                 </h2>
                 <div className="mt-8">
-                    <div className="aspect-w-16 aspect-h-9">
-                        <iframe
-                            className="w-full h-full rounded-lg"
-                            src="https://www.youtube.com/watch?v=BRzQcG-f8jc"
-                            title="Demo do CHATTE"
-                            allowFullScreen
-                        />
+                    <div className="aspect-w-16 aspect-h-11">
+                        <iframe className="w-full h-80 rounded-lg" width="1088" height="612" src="https://www.youtube.com/embed/eNCyEopsTMo" title="CHATTE - Revolucione o Atendimento ao Cliente" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </div>

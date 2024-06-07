@@ -1,4 +1,3 @@
-import React from 'react';
 import VideoSection from './components/VideoSection/VideoSection';
 import DescriptionSection from './components/DescriptionSection/DescriptionSection';
 import ValuesSection from './components/ValuesSection/ValuesSection';

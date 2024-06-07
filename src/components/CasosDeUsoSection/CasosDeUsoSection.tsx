@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface CasoDeUso {
     title: string;
@@ -9,36 +9,71 @@ interface CasoDeUso {
 const casosDeUso: CasoDeUso[] = [
     {
         title: "Geração de leads",
-        imageUrl: "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg.84f194e6.png&w=720&q=75",
+        imageUrl: "https://images.unsplash.com/photo-1560209617-059c0bd661ba?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         description: "Capte leads diretamente pelo WhatsApp, expandindo sua base de clientes potenciais."
     },
     {
         title: "Recomendação de produto",
-        imageUrl: "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg-1.fb74f23a.png&w=720&q=75",
+        imageUrl: "https://images.unsplash.com/photo-1560617544-b4f287789e24?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         description: "Forneça recomendações personalizadas de produtos para seus clientes, aumentando as vendas."
     },
     {
         title: "Coleta de feedback",
-        imageUrl: "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg-2.b25affec.png&w=720&q=75",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1664110690660-14bae0f188de?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         description: "Colete feedback instantâneo dos clientes para melhorar seus produtos e serviços."
     },
-    // Adicione mais casos de uso conforme necessário
+    {
+        title: "Recuperação de carrinhos abandonados",
+        imageUrl: "https://images.unsplash.com/photo-1549187805-6079facea88d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "Colete feedback instantâneo dos clientes para melhorar seus produtos e serviços."
+    },
 ];
 
 const CasosDeUsoSection: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? casosDeUso.length - 1 : prevIndex - 1));
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === casosDeUso.length - 1 ? 0 : prevIndex + 1));
+    };
+
     return (
-        <section className="container py-4 sm:py-8 md:py-16">
-            <div className="h2-accent lg:h1-accent mb-3 text-white md:mb-4 lg:mb-6">Casos de uso mais populares do WhatsApp para negócios</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {casosDeUso.map((caso, index) => (
-                    <div key={index} className="rounded-lg bg-green-tertiary overflow-hidden shadow-md">
-                        <img alt={caso.title} loading="lazy" width="100%" height="auto" decoding="async" src={caso.imageUrl} />
-                        <div className="p-4">
-                            <h3 className="text-lg font-semibold mb-2">{caso.title}</h3>
-                            <p className="text-sm text-gray-700">{caso.description}</p>
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-blue-500 text-white">
+            <div className="max-w-7xl mx-auto">
+                <h2 className="text-3xl font-extrabold text-center mb-8">
+                    Casos de uso mais populares do Chat Com Bot para negócios
+                </h2>
+                <div className="relative">
+                    <button
+                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-700 text-white p-2 rounded-full"
+                        onClick={handlePrev}
+                    >
+                        &#9664;
+                    </button>
+                    <div className="overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-500"
+                            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        >
+                            {casosDeUso.map((caso, index) => (
+                                <div key={index} className="min-w-full p-6 bg-green-tertiary rounded-lg shadow-md text-green-text">
+                                    <img alt={caso.title} src={caso.imageUrl} className="w-full h-40 object-cover mb-4 rounded-lg" />
+                                    <h3 className="text-lg font-semibold mb-2">{caso.title}</h3>
+                                    <p className="text-sm">{caso.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                ))}
+                    <button
+                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-700 text-white p-2 rounded-full"
+                        onClick={handleNext}
+                    >
+                        &#9654;
+                    </button>
+                </div>
             </div>
         </section>
     );

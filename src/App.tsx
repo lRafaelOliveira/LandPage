@@ -1,24 +1,23 @@
-import VideoSection from './components/VideoSection/VideoSection';
-import DescriptionSection from './components/DescriptionSection/DescriptionSection';
-import ValuesSection from './components/ValuesSection/ValuesSection';
-import TestimonialsSection from './components/TestimonialsSection/TestimonialsSection';
-import FeaturesSection from './components/FeaturesSection/FeaturesSection';
-import WhatsAppLink from './components/WhatsAppLink/WhatsAppLink';
-import Footer from './components/Footer/Footer';
-import CasosDeUsoSection from './components/CasosDeUsoSection/CasosDeUsoSection';
+
+import { Apresentacao } from './components/Apresentacao/Apresentacao';
+import { CasosDeUsoSection } from './components/CasosDeUsoSection/CasosDeUsoSection';
+import { Contact } from './components/Contact/Contact';
+import { FaqSection } from './components/Faq/Faq';
+import { Navbar } from './components/Navbar/Navbar';
+import { PlanosSection } from './components/Planos/Planos';
+import { Sobre } from './components/Sobre/Sobre';
 
 
 export function App() {
   return (
-    <div className="bg-gray-900 text-white">
-      <VideoSection />
-      <DescriptionSection />
-      <ValuesSection />
+    <div className="">
+      <Navbar />
+      <Apresentacao />
+      <Sobre />
       <CasosDeUsoSection />
-      <TestimonialsSection />
-      <FeaturesSection />
-      <WhatsAppLink />
-      <Footer />
+      <PlanosSection />
+      <FaqSection />
+      <Contact />
     </div>
   )
 }

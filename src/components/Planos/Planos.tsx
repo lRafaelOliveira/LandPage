@@ -26,14 +26,13 @@ export const PlanosSection = () => {
     }, []);
 
     async function fetchPlanosDisponiveis() {
-        const url = 'http://localhost:9001/stripe/info/planos-disponiveis';
+        const url = `${import.meta.env.VITE_URL_BACKEND}/stripe/info/planos-disponiveis`;
         const headers = {
-            Authorization: 'api_key b2fc25582af9861459837b12ed2a6742'
+            Authorization: `api_key ${import.meta.env.VITE_API_KEY}`
         };
 
         try {
             const response = await axios.get(url, { headers });
-            console.log(response)
             setPlanos(response.data);
         } catch (error) {
             console.error('Erro ao buscar os planos disponíveis:', error);
@@ -68,7 +67,7 @@ export const PlanosSection = () => {
                                 <div className="p-6 border-t border-blue-gray-50">
                                     <ul className="flex flex-col gap-3">
                                         {plano.vantagens.map((vantagem, index) => (
-                                            <li key={index} className="flex items-center gap-3 text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" className="h-4 w-4 text-blue-gray-900">
+                                            <li key={index} className="flex items-center gap-3 text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-4 w-4 text-blue-gray-900">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
                                             </svg>
                                                 <p className="block antialiased font-sans text-sm leading-normal font-normal text-inherit">{vantagem}</p>

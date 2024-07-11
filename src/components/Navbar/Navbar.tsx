@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from '../../assets/logo-chatte.png';
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export const Navbar = () => {
     return (
         <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap bg-white p-6 shadow z-50">
             <div className="flex items-center flex-shrink-0 text-black">
-                <span className="font-semibold tracking-tight">CHATCOMBOT</span>
+                <img src={Logo} alt="" className="h-[5rem] object-cover" />
             </div>
             <div className="hidden lg:flex lg:w-3/5 justify-center">
                 <div className="text-[1.2rem] lg:flex-grow flex justify-end font-bold">
